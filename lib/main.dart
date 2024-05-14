@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,25 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
+
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const JankenPage(title: 'Flutter Demo Home Page'),
+      home: JankenPage(),
     );
   }
 }
@@ -44,8 +32,72 @@ class JankenPage extends StatefulWidget {
 }
 
 class _JankenPageState extends State<JankenPage> {
+  String myHand='✊';
+  String computerHand='✊';
+  String result='あいこ';
+
+  void selectHand(String selectedHand) {
+    myHand=selectedHand;
+    print(myHand);
+    generateComputerHand();
+    judge();
+    setState(() {});
+  }
+
+  String randomNumberToHand(int randomNumber){
+    switch(randomNumber) {
+      case 0:
+        return '✊';
+      case 1:
+        return '✌';
+      case 2:
+        return '🖐';
+      default:
+        return '✊';
+    }
+  }
+
+  void generateComputerHand() {
+    final randomNumber=Random().nextInt(3);
+    computerHand=randomNumberToHand(randomNumber);
+  }
+
+  void judge() {
+    if (myHand==computerHand) {
+      result = 'あいこ';
+    } else if (myHand=='✊' && computerHand=='✌' || myHand=='✌' && computerHand == '🖐' || myHand=='🖐' && computerHand=='✊') {
+      result = 'あなたの勝ち';
+    } else {
+      result = 'あなたの負け';
+    }
+
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('じゃんけん'),
+      ),
+      body : Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(computerHand,style:TextStyle(fontSize: 32)),
+            Text(result,style: TextStyle(fontSize: 48),),
+            Text(myHand, style: TextStyle(fontSize: 32)),
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(onPressed: (){selectHand('✊');}, child: Text('✊'),),
+                ElevatedButton(onPressed: (){selectHand('✌');}, child: Text('✌'),),
+                ElevatedButton(onPressed: (){selectHand('🖐');}, child: Text('🖐'),),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
