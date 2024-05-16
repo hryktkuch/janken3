@@ -1,16 +1,35 @@
-# janken3
+# ①課題番号-プロダクト名
 
-A new Flutter project.
+じゃんけんアプリflutter
 
-## Getting Started
+## ②課題内容（どんな作品か）
 
-This project is a starting point for a Flutter application.
+- じゃんけんの中身は同じだけど、いつかスマホアプリを作りたくなったときのためにFlutterにチャレンジした
 
-A few resources to get you started if this is your first Flutter project:
+## ③DEMO
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+（デプロイの仕方がわからない）
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ④作ったアプリケーション用のIDまたはPasswordがある場合
+
+なし
+- ID: 〇〇〇〇〇〇〇〇
+- PW: 〇〇〇〇〇〇〇〇
+
+## ⑤工夫した点・こだわった点
+
+- Flutterで作った
+
+## ⑥難しかった点・次回トライしたいこと(又は機能)
+
+- デプロイの仕方がわからない
+- UIつくるのムズい
+
+## ⑦質問・疑問・感想、シェアしたいこと等なんでも
+
+とくになし
+- [質問]
+- [感想]
+- [参考記事]
+  - 1. [URLをここに記入]
+  - 2. [URLをここに記入]
