@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: JankenPage(),
+      home: const JankenPage(),
     );
   }
 }
@@ -77,22 +77,22 @@ class _JankenPageState extends State<JankenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('じゃんけん'),
+        title: const Text('じゃんけん'),
       ),
       body : Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(computerHand,style:TextStyle(fontSize: 32)),
-            Text(result,style: TextStyle(fontSize: 48),),
-            Text(myHand, style: TextStyle(fontSize: 32)),
-            SizedBox(height: 16),
+            Text(computerHand,style:const TextStyle(fontSize: 32)),
+            Text(result,style: const TextStyle(fontSize: 48),),
+            Text(myHand, style: const TextStyle(fontSize: 32)),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(onPressed: (){selectHand('✊');}, child: Text('✊'),),
-                ElevatedButton(onPressed: (){selectHand('✌');}, child: Text('✌'),),
-                ElevatedButton(onPressed: (){selectHand('🖐');}, child: Text('🖐'),),
+                ElevatedButton(onPressed: (){selectHand('✊');}, child: const Text('✊'),),
+                ElevatedButton(onPressed: (){selectHand('✌');}, child: const Text('✌'),),
+                ElevatedButton(onPressed: (){selectHand('🖐');}, child: const Text('🖐'),),
               ],
             ),
           ],
